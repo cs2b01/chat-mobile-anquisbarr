@@ -1,88 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    >
 
-
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/loginLayout"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:background="@drawable/back_start"
+        tools:context=".LoginActivity"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
-        <LinearLayout
+        <ImageView
+            android:id="@+id/imageMain"
+            android:layout_width="161dp"
+            android:layout_height="114dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="121dp"
+            android:layout_marginTop="83dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:src="@drawable/iconomain" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="94dp"
+            android:layout_marginTop="2dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="CSB01 CHAT"
+            android:textColor="#000000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="42dp"
+            android:layout_marginTop="44dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="201810223 - Sebastian Quispe Barriga"
+            android:textColor="#000000"
+            android:textSize="18dp" />
+
+        <EditText
+            android:id="@+id/txtUsername"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/imageMain"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="134dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edittext"
+            android:cursorVisible="true"
+            android:drawablePadding="25dp"
+            android:ems="10"
+            android:hint="Enter Username"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:textColor="#333333"
+            android:textColorHint="#d8d8d9"
+            android:textCursorDrawable="@null"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/txtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/txtUsername"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/edittext"
+            android:cursorVisible="true"
+            android:drawablePadding="25dp"
+            android:ems="10"
+            android:hint="Enter Password"
+            android:inputType="textPassword"
+            android:paddingLeft="20dp"
+            android:paddingTop="5dp"
+            android:textColor="#333333"
+            android:textColorHint="#d8d8d9"
+            android:textCursorDrawable="@null"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="CSB01 CHAT"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="201810223 - Sebastian Andrés Quispe Barriga"/>
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/lblUsername"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Username"/>
-            <EditText
-                android:id="@+id/txtUsername"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-            <TextView
-                android:id="@+id/lblPassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Password"/>
-            <EditText
-                android:id="@+id/txtPassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPassword"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-            <Button
-                android:id="@+id/btnLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Login"
-                android:onClick="onBtnLoginClicked"
-                />
-
-        </LinearLayout>
-
-
-    </LinearLayout>
+            android:layout_below="@id/txtPassword"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginRight="70dp"
+            android:background="@drawable/editboton"
+            android:fontFamily="sans-serif"
+            android:onClick="onBtnLoginClicked"
+            android:text="LOG IN"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:textStyle="normal|bold" />
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

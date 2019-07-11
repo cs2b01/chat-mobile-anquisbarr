@@ -1,5 +1,6 @@
 package cs2901.utec.chat_mobile;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
@@ -16,9 +17,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import android.content.Intent;
-import org.json.JSONException;
 import android.view.View;
-
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -33,11 +32,13 @@ public class LoginActivity extends AppCompatActivity {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
-    public void onBtnLoginClicked(View view) {
+    public Activity getActivity(){
+        return this; }
+        public void onBtnLoginClicked(View view) {
         // 1. Getting username and password inputs from view
         EditText txtUsername = (EditText) findViewById(R.id.txtUsername);
         EditText txtPassword = (EditText) findViewById(R.id.txtPassword);
-        String username = txtUsername.getText().toString();
+        final String username = txtUsername.getText().toString();
         String password = txtPassword.getText().toString();
 
         // 2. Creating a message from user input data
@@ -59,8 +60,13 @@ public class LoginActivity extends AppCompatActivity {
                     //TODO
                     try {
                         String message = response.getString("message");
-                        if(message.equals("Authorized")) {
+                        int status= response.getInt("status");
+                        if(status==200) {
                             showMessage("Authenticated");
+                            Intent intent = new Intent(getActivity(), ContactsActivity.class);
+                            intent.putExtra("user_id", Integer.parseInt(message));
+                            intent.putExtra("username", username);
+                            startActivity(intent);
                         }
                         else {
                             showMessage("Wrong username or password");
